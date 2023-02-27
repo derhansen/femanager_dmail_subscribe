@@ -5,8 +5,7 @@ defined('TYPO3_MODE') || die('Access denied.');
  * Include page and user TS
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:'
-    . 'femanager_dmail_subscribe/Configuration/TSConfig/page.t3s">'
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:femanager_dmail_subscribe/Configuration/TSConfig/page.tsconfig">'
 );
 
 /**
