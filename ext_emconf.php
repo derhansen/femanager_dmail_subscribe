@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'femanager direct mail subscription',
     'description' => 'Adds direct mail fields to femanager',
     'category' => 'plugin',
@@ -12,13 +12,13 @@ $EM_CONF[$_EXTKEY] = array(
     'createDirs' => '',
     'clearCacheOnLoad' => 1,
     'version' => '2.1.3',
-    'constraints' => array(
-        'depends' => array(
+    'constraints' => [
+        'depends' => [
             'typo3' => '11.5.0-11.5.99',
             'femanager' => '7.0.0',
             'direct_mail' => ''
-        ),
-        'conflicts' => array(),
-        'suggests' => array(),
-    )
-);
+        ],
+        'conflicts' => [],
+        'suggests' => [],
+    ]
+];
