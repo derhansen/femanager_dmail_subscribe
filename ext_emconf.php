@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '11.5.0-11.5.99',
-            'femanager' => '7.0.0',
+            'femanager' => '7.0.0-7.99.99',
             'direct_mail' => ''
         ],
         'conflicts' => [],
