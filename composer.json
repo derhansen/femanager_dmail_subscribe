@@ -23,5 +23,10 @@
     "psr-4": {
       "Derhansen\\FemanagerDmailSubscribe\\": "Classes"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "femanager_dmail_subscribe"
+    }
   }
 }
