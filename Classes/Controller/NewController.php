@@ -22,7 +22,6 @@ use In2code\Femanager\Finisher\FinisherRunner;
 use In2code\Femanager\Utility\LogUtility;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class NewController
@@ -46,8 +45,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
         DmailCategoryRepository $dmailCategoryRepository
     ) {
         $this->dmailCategoryRepository = $dmailCategoryRepository;
-        parent::__construct($userRepository, $userGroupRepository, $persistenceManager, $sendMailService,
-            $finisherRunner, $logUtility);
+        parent::__construct($userRepository, $userGroupRepository, $persistenceManager, $sendMailService, $finisherRunner, $logUtility);
     }
 
     /**
@@ -56,7 +54,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
     public function initializeNewAction()
     {
         if ($this->arguments->hasArgument('user')) {
-            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Controller\Argument $user */
+            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Mvc\Controller\Argument $user */
             $user = $this->arguments['user'];
             $user->setDataType(\Derhansen\FemanagerDmailSubscribe\Domain\Model\User::class);
         }
@@ -82,7 +80,7 @@ class NewController extends \In2code\Femanager\Controller\NewController
     public function initializeCreateAction()
     {
         if ($this->arguments->hasArgument('user')) {
-            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Controller\Argument $user */
+            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Mvc\Controller\Argument $user */
             $user = $this->arguments['user'];
             $user->setDataType(\Derhansen\FemanagerDmailSubscribe\Domain\Model\User::class);
         }

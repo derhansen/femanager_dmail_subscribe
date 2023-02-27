@@ -59,7 +59,7 @@ class EditController extends \In2code\Femanager\Controller\EditController
     {
         parent::initializeUpdateAction();
         if ($this->arguments->hasArgument('user')) {
-            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Controller\Argument $user */
+            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Mvc\Controller\Argument $user */
             $user = $this->arguments['user'];
             $user->setDataType(\Derhansen\FemanagerDmailSubscribe\Domain\Model\User::class);
         }
