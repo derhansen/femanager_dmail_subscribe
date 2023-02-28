@@ -14,28 +14,21 @@ namespace Derhansen\FemanagerDmailSubscribe\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * Class DmailCategory
  */
-class DmailCategory extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class DmailCategory extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $category;
+    protected string $category;
 
-    /**
-     * @return string
-     */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->category;
     }
 
-    /**
-     * @param string $category
-     */
-    public function setCategory($category)
+    public function setCategory(string $category): void
     {
         $this->category = $category;
     }

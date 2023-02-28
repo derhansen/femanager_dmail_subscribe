@@ -15,6 +15,7 @@ namespace Derhansen\FemanagerDmailSubscribe\Controller;
  */
 
 use Derhansen\FemanagerDmailSubscribe\Domain\Repository\DmailCategoryRepository;
+use Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Mvc\Controller\Argument;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -22,29 +23,13 @@ use Psr\Http\Message\ResponseInterface;
  */
 class EditController extends \In2code\Femanager\Controller\EditController
 {
-    /**
-     * Directmail Category Repository
-     *
-     * @var \Derhansen\FemanagerDmailSubscribe\Domain\Repository\DmailCategoryRepository
-     */
-    protected $dmailCategoryRepository;
+    protected DmailCategoryRepository $dmailCategoryRepository;
 
-    /**
-     * DI for dmailCategoryRepository
-     *
-     * @param DmailCategoryRepository $dmailCategoryRepository
-     * @return void
-     */
-    public function injectDmailCategoryRespository(DmailCategoryRepository $dmailCategoryRepository)
+    public function injectDmailCategoryRespository(DmailCategoryRepository $dmailCategoryRepository): void
     {
         $this->dmailCategoryRepository = $dmailCategoryRepository;
     }
 
-    /**
-     * Edit action
-     *
-     * @return void
-     */
     public function editAction(): ResponseInterface
     {
         $dmailCategories = $this->dmailCategoryRepository->findAll();
@@ -55,24 +40,21 @@ class EditController extends \In2code\Femanager\Controller\EditController
     /**
      * Workaround to avoid php7 warnings of wrong type hint.
      */
-    public function initializeUpdateAction()
+    public function initializeUpdateAction(): void
     {
         parent::initializeUpdateAction();
         if ($this->arguments->hasArgument('user')) {
-            /** @var \Derhansen\FemanagerDmailSubscribe\Xclass\Extbase\Mvc\Controller\Argument $user */
+            /** @var Argument $user */
             $user = $this->arguments['user'];
             $user->setDataType(\Derhansen\FemanagerDmailSubscribe\Domain\Model\User::class);
         }
     }
 
     /**
-     * action update
-     *
      * @param \Derhansen\FemanagerDmailSubscribe\Domain\Model\User $user
      * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
      * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
      * @TYPO3\CMS\Extbase\Annotation\Validate("In2code\Femanager\Domain\Validator\CaptchaValidator", param="user")
-     * @return void
      */
     public function updateAction(\In2code\Femanager\Domain\Model\User $user)
     {

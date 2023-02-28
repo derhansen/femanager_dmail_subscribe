@@ -14,81 +14,53 @@ namespace Derhansen\FemanagerDmailSubscribe\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Class User
  */
 class User extends \In2code\Femanager\Domain\Model\User
 {
-    /**
-     * @var bool
-     */
-    protected $moduleSysDmailNewsletter = false;
+    protected bool $moduleSysDmailNewsletter = false;
+    protected bool $moduleSysDmailHtml = true;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Derhansen\FemanagerDmailSubscribe\Domain\Model\DmailCategory>
+     * @var ObjectStorage<DmailCategory>|null
      */
-    protected $moduleSysDmailCategory = null;
+    protected ?ObjectStorage $moduleSysDmailCategory = null;
 
-    /**
-     * @var bool
-     */
-    protected $moduleSysDmailHtml = true;
-
-    /**
-     * Constructor
-     */
     public function __construct()
     {
-        $this->moduleSysDmailCategory = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->moduleSysDmailCategory = new ObjectStorage();
         parent::__construct();
     }
 
-    /**
-     * @return bool
-     */
-    public function getModuleSysDmailNewsletter()
+    public function getModuleSysDmailNewsletter(): bool
     {
         return $this->moduleSysDmailNewsletter;
     }
 
-    /**
-     * @param bool $moduleSysDmailNewsletter
-     */
-    public function setModuleSysDmailNewsletter($moduleSysDmailNewsletter)
+    public function setModuleSysDmailNewsletter(bool $moduleSysDmailNewsletter): void
     {
         $this->moduleSysDmailNewsletter = $moduleSysDmailNewsletter;
     }
 
-    /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getModuleSysDmailCategory()
+    public function getModuleSysDmailCategory(): ?ObjectStorage
     {
         return $this->moduleSysDmailCategory;
     }
 
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $moduleSysDmailCategory
-     * @return void
-     */
-    public function setModuleSysDmailCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $moduleSysDmailCategory)
+    public function setModuleSysDmailCategory(ObjectStorage $moduleSysDmailCategory): void
     {
         $this->moduleSysDmailCategory = $moduleSysDmailCategory;
     }
 
-    /**
-     * @return bool
-     */
-    public function getModuleSysDmailHtml()
+    public function getModuleSysDmailHtml(): bool
     {
         return $this->moduleSysDmailHtml;
     }
 
-    /**
-     * @param bool $moduleSysDmailHtml
-     * @return void
-     */
-    public function setModuleSysDmailHtml($moduleSysDmailHtml)
+    public function setModuleSysDmailHtml(bool $moduleSysDmailHtml): void
     {
         $this->moduleSysDmailHtml = $moduleSysDmailHtml;
     }
